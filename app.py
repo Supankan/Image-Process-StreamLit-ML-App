@@ -11,6 +11,10 @@ import cv2
 import os
 import base64
 import json
+from dotenv import find_dotenv, load_dotenv
+
+load_dotenv(find_dotenv())
+HF_API_KEY = os.getenv("HF_API_KEY")
 
 
 def convert_image(image, output_format):
@@ -159,7 +163,7 @@ elif selected == "Object Detection":
         if st.button("Detect Objects"):
             with st.spinner("Detecting objects..."):
                 API_URL_objDet = "https://api-inference.huggingface.co/models/facebook/detr-resnet-50"
-                headers_objDet = {"Authorization": "Bearer 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"}
+                headers_objDet = {"Authorization": f"Bearer {HF_API_KEY}"}
 
                 detections = call_huggingface_api(image, API_URL_objDet, headers_objDet)
 

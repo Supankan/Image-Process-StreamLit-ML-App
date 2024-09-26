@@ -36,7 +36,12 @@ share/python-wheels/
 .DS_Store
 Thumbs.db
 
+# Ignore the older file main.py and the test.py (test individual functions)
 main.py
 test.py
+
+# Ignore the large weights file
 utils/yolov3.weights
 
+# Ignore .env file with API keys
+.env
